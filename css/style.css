@@ -1,0 +1,39 @@
+body,html{
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+td
+{
+  font-family: 'Shrikhand', cursive;
+  font-size: 2em;
+  vertical-align: middle;
+  height:90px;
+}
+
+li{
+  font-size: 0.4em;
+}
+
+.centered{
+  display: inline-block;
+  margin-left: auto;
+  margin-top: auto;
+  float: none;
+}
+
+.sidebar{
+  float: right;
+  border: solid 1px black;
+  position: fixed;
+  height: 100%;
+  right: 0;
+  padding: 10px 10px 10px 10px;
+}
+
+.music-list{
+  overflow: auto;
+}
