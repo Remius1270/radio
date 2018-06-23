@@ -18,6 +18,10 @@ li{
   font-size: 0.4em;
 }
 
+#structure{
+  visibility: hidden;
+}
+
 .centered{
   display: inline-block;
   margin-left: auto;
@@ -36,4 +40,9 @@ li{
 
 .music-list{
   overflow: auto;
+}
+
+.playing
+{
+  background-color: rgba(0,0,0,0.3)
 }
