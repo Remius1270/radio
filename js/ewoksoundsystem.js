@@ -66,6 +66,8 @@ $(document).ready(function(){
 
         set_source(player_source,player,"music/"+structure[current_playlist][0]+"/"+structure[current_playlist][1][next_music]);
 
+        $("#song").html("Song : "+current_music + "<br/> Name: "+structure[current_playlist][1][current_music]);
+
       }
     }
 

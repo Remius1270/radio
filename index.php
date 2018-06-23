@@ -36,7 +36,7 @@
       {
         if(is_dir($musicPath.$playlist) && $playlist != '.' && $playlist != '..') // on affiche toutes les playlists sauf "." et ".." qui sont des indexes
         {
-          echo "<tr><td><img src='https://files.steyoyoke.com/2016/04/SYYK039_VINYL.jpg' width='100px;'></td><td>".$playlist."</td><td>".($playlist_num-2)." Mhz</td>";
+          echo "<tr><td><img src='https://files.steyoyoke.com/2016/04/SYYK039_VINYL.jpg' width='100px;'></td><td>".$playlist."</td><td>".($playlist_num-3)." Mhz</td>";
           echo "<td class='music-list'><ul>";
           $musics = scandir($musicPath.$playlist."/"); // on récupère la liste des chansons pour chaque playlist dans le foreach
           $music_num = 0;
