@@ -22,6 +22,12 @@ li{
   visibility: hidden;
 }
 
+#player{
+  height: 200px;
+  width: 100%;
+  bottom: 0;
+}
+
 .centered{
   display: inline-block;
   margin-left: auto;

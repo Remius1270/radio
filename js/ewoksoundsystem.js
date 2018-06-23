@@ -66,7 +66,6 @@ $(document).ready(function(){
 
         set_source(player_source,player,"music/"+structure[current_playlist][0]+"/"+structure[current_playlist][1][next_music]);
 
-        $("#song").html("Song : "+current_music + " Name: "+structure[current_playlist][1][current_music]);
       }
     }
 
@@ -93,7 +92,7 @@ $(document).ready(function(){
        else
        {
          //changement de la musique
-         $("#current").html("Playlist : "+current_playlist + " Name: "+structure[current_playlist][0]);
+         $("#current").html("Playlist : "+current_playlist + "<br/> Name: "+structure[current_playlist][0]);
 
          next_music = getRandomInt(structure[current_playlist][1].length);
 
@@ -104,10 +103,8 @@ $(document).ready(function(){
          var start_time = Math.floor(Math.random() * Math.floor(60));//si 'est une chanson et pas une alerte on ouvre à un moment aléatoire de la chanson
          main.currentTime = start_time;
 
-         $("#song").html("Song : "+current_music + " Name: "+structure[current_playlist][1][current_music]);
+         $("#song").html("Song : "+current_music + "<br/> Name: "+structure[current_playlist][1][current_music]);
 
-         $("#song_"+current_playlist+"_"+current_music).addClass('playing');
-         console.log("#song_"+current_playlist+"_"+current_music);
        }
 
     });
@@ -118,12 +115,12 @@ $(document).ready(function(){
     var first_playlist = structure[0];//première playlist
     var random_music = getRandomInt(first_playlist[1].length);//une musique random
 
-    $("#current").html("Playlist : "+current_playlist + " Name: "+structure[current_playlist][0]);//on affiche le nom et l'index de la playlist courrante
+    $("#current").html("Playlist : "+current_playlist + "<br/> Name: "+structure[current_playlist][0]);//on affiche le nom et l'index de la playlist courrante
 
 
     current_music = random_music; //définit comme la musique qui joue courament
 
-    $("#song").html("Song : "+current_music + " Name: "+structure[current_playlist][1][current_music]);// affiche la chanson courante
+    $("#song").html("Song : "+current_music + "<br/> Name: "+structure[current_playlist][1][current_music]);// affiche la chanson courante
 
     set_source(main_source,main,"music/"+first_playlist[0]+"/"+first_playlist[1][random_music]);//on met dans la musique en source
 

@@ -36,7 +36,7 @@
       {
         if(is_dir($musicPath.$playlist) && $playlist != '.' && $playlist != '..') // on affiche toutes les playlists sauf "." et ".." qui sont des indexes
         {
-          echo "<tr><td><img src='https://files.steyoyoke.com/2016/04/SYYK039_VINYL.jpg' width='100px;'></td><td>".$playlist."</td><td>".(((array_search($playlist,$playlists)-3)/$size)*200)." Mhz</td>";
+          echo "<tr><td><img src='https://files.steyoyoke.com/2016/04/SYYK039_VINYL.jpg' width='100px;'></td><td>".$playlist."</td><td>".($playlist_num-2)." Mhz</td>";
           echo "<td class='music-list'><ul>";
           $musics = scandir($musicPath.$playlist."/"); // on récupère la liste des chansons pour chaque playlist dans le foreach
           $music_num = 0;
@@ -76,52 +76,56 @@
     <hr/>
 
     <!-- Lecteur -->
+    <div id="player" >
 
-    <audio autoplay  id="main">
-      <source src="" type="audio/mpeg" id="main_audioSource" >
-      Your browser does not support the audio tag.
-    </audio>
+          <audio autoplay  id="main">
+            <source src="" type="audio/mpeg" id="main_audioSource" >
+            Your browser does not support the audio tag.
+          </audio>
 
-    <audio autoplay  id="effect">
-      <source src="" id="effect_audio_source" >
-      Your browser does not support the audio tag.
-    </audio>
+          <audio autoplay  id="effect">
+            <source src="" id="effect_audio_source" >
+            Your browser does not support the audio tag.
+          </audio>
 
-    <div id="current" >Playlist : 0</div><br/>
-    <div id="song">Song : </div>
+          <div id="current" >Playlist : 0</div><br/>
+          <div id="song">Song : </div>
 
-    <?php
-        $musicPath = "./music/"; //toutes les plylist sont contenues dans le dossier musique
-        $playlists = scandir($musicPath); //récupération de tous les dossiers de playlist
+          <?php
+              $musicPath = "./music/"; //toutes les plylist sont contenues dans le dossier musique
+              $playlists = scandir($musicPath); //récupération de tous les dossiers de playlist
 
-        $music_structure = array();// ici que sera stocké sous forme de -> titre  et -> (array)musiques pour avoir l'archi des plylists
+              $music_structure = array();// ici que sera stocké sous forme de -> titre  et -> (array)musiques pour avoir l'archi des plylists
 
-        foreach ($playlists as $key => $playlist)
-        {
-          $playlist_container = array();
-          if(is_dir($musicPath.$playlist) && $playlist != '.' && $playlist != '..') // on affiche toutes les playlists sauf "." et ".." qui sont des indexes
-          {
-            //oui bon bah la je fais l'arborescence et c'est ton algo a la base donc je vais pas t'expliquer ce que tu as fait hein
-            $playlist_title = $playlist;
-            $playlist_musics = array();
-
-            $musics = scandir($musicPath.$playlist."/");
-
-            foreach($musics as $key => $music)
-            {
-                if($music != "." && $music != "..")
+              foreach ($playlists as $key => $playlist)
+              {
+                $playlist_container = array();
+                if(is_dir($musicPath.$playlist) && $playlist != '.' && $playlist != '..') // on affiche toutes les playlists sauf "." et ".." qui sont des indexes
                 {
-                  $music_name = $music;
-                  array_push($playlist_musics,$music_name);
-                }
-            }
-            array_push($playlist_container,$playlist_title,$playlist_musics);
-            array_push($music_structure,$playlist_container);
-          }
+                  //oui bon bah la je fais l'arborescence et c'est ton algo a la base donc je vais pas t'expliquer ce que tu as fait hein
+                  $playlist_title = $playlist;
+                  $playlist_musics = array();
 
-        }
-        echo "<div id='structure' >".json_encode($music_structure)."</div>";
-        ?>
+                  $musics = scandir($musicPath.$playlist."/");
+
+                  foreach($musics as $key => $music)
+                  {
+                      if($music != "." && $music != "..")
+                      {
+                        $music_name = $music;
+                        array_push($playlist_musics,$music_name);
+                      }
+                  }
+                  array_push($playlist_container,$playlist_title,$playlist_musics);
+                  array_push($music_structure,$playlist_container);
+                }
+
+              }
+              echo "<div id='structure' >".json_encode($music_structure)."</div>";
+              ?>
+    </div>
+
+    <hr/>
 
 </form>
 </div>
