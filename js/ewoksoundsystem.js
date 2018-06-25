@@ -66,7 +66,7 @@ $(document).ready(function(){
 
         set_source(player_source,player,"music/"+structure[current_playlist][0]+"/"+structure[current_playlist][1][next_music]);
 
-        $("#song").html("Song : "+current_music + "<br/> Name: "+structure[current_playlist][1][current_music]);
+        $("#song").html(structure[current_playlist][1][current_music]);
 
       }
     }
@@ -75,10 +75,10 @@ $(document).ready(function(){
 
     $(document).bind('keydown',function(e){ //changement de chaine lorqu'on appuye sur fleche du haut ou fleche du bas.
       //play_effect("./alert/switch.wav");
-        if(e.keyCode == 38) {//flèche du haut
+        if(e.keyCode == 39) {//flèche du haut
            current_playlist+=1;
         }
-        else if(e.keyCode == 40) {//flèche du bas
+        else if(e.keyCode == 37) {//flèche du bas
             current_playlist-=1;
        }
        if(current_playlist < 0 )//si on descend en dessus de la plus "petite" playlist
@@ -88,13 +88,13 @@ $(document).ready(function(){
        }
        else if(current_playlist > structure.length-1) //si on monte au dessus de la plus haute playlist
        {
-         current_playlist = structure.length;
+         current_playlist = structure.length-1;
         // play_effect("./alert/too_high.wav");
        }
        else
        {
          //changement de la musique
-         $("#current").html("Playlist : "+current_playlist + "<br/> Name: "+structure[current_playlist][0]);
+         $("#current").html(structure[current_playlist][0]);
 
          next_music = getRandomInt(structure[current_playlist][1].length);
 
@@ -105,10 +105,14 @@ $(document).ready(function(){
          var start_time = Math.floor(Math.random() * Math.floor(60));//si 'est une chanson et pas une alerte on ouvre à un moment aléatoire de la chanson
          main.currentTime = start_time;
 
-         $("#song").html("Song : "+current_music + "<br/> Name: "+structure[current_playlist][1][current_music]);
+         $("#song").html(structure[current_playlist][1][current_music]);
 
        }
 
+    });
+
+    $(".toggle").click(function(){
+      $('.form').toggleClass('hidden');
     });
 
     //initial script--------------------------------------------------------------
@@ -117,12 +121,12 @@ $(document).ready(function(){
     var first_playlist = structure[0];//première playlist
     var random_music = getRandomInt(first_playlist[1].length);//une musique random
 
-    $("#current").html("Playlist : "+current_playlist + "<br/> Name: "+structure[current_playlist][0]);//on affiche le nom et l'index de la playlist courrante
+    $("#current").html(structure[current_playlist][0]);//on affiche le nom et l'index de la playlist courrante
 
 
     current_music = random_music; //définit comme la musique qui joue courament
 
-    $("#song").html("Song : "+current_music + "<br/> Name: "+structure[current_playlist][1][current_music]);// affiche la chanson courante
+    $("#song").html(structure[current_playlist][1][current_music]);// affiche la chanson courante
 
     set_source(main_source,main,"music/"+first_playlist[0]+"/"+first_playlist[1][random_music]);//on met dans la musique en source
 

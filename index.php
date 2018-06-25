@@ -36,7 +36,7 @@
       {
         if(is_dir($musicPath.$playlist) && $playlist != '.' && $playlist != '..') // on affiche toutes les playlists sauf "." et ".." qui sont des indexes
         {
-          echo "<tr><td><img src='https://files.steyoyoke.com/2016/04/SYYK039_VINYL.jpg' width='100px;'></td><td>".$playlist."</td><td>".($playlist_num-3)." Mhz</td>";
+          echo "<tr><td>".$playlist."</td><td>".($playlist_num-3)." Mhz</td>";
           echo "<td class='music-list'><ul>";
           $musics = scandir($musicPath.$playlist."/"); // on récupère la liste des chansons pour chaque playlist dans le foreach
           $music_num = 0;
@@ -57,25 +57,6 @@
   </table>
 </div>
 <div class="col-md-2 sidebar">
-  <form action="upload.php" method="post" enctype="multipart/form-data">
-    Upload music
-    <input type="file" name="fileToUpload" id="fileToUpload">
-
-    <select name="playlist">
-      <?php
-        foreach($playlists as $key => $playlist)
-        {
-          if($playlist != '.' && $playlist != '..' && $playlist != '.DS_Store')
-          {
-            echo "<option value='".$playlist."' >".$playlist."</option>";
-          }
-        }
-      ?>
-    </select><br/>
-    <input type="submit" value="Upload Music" name="submit">
-    <hr/>
-
-    <!-- Lecteur -->
     <div id="player" >
 
           <audio autoplay  id="main">
@@ -88,9 +69,15 @@
             Your browser does not support the audio tag.
           </audio>
 
-          <div id="current" >Playlist : 0</div><br/>
-          <div id="song">Song : </div>
+          <div class="info" >
+            <p>Radio</p>
+            <div id="current" >Playlist : 0</div>
+          </div>
 
+          <div class="info" >
+            <p>Song</p>
+            <div id="song">Song : </div>
+          </div>
           <?php
               $musicPath = "./music/"; //toutes les plylist sont contenues dans le dossier musique
               $playlists = scandir($musicPath); //récupération de tous les dossiers de playlist
@@ -127,7 +114,34 @@
 
     <hr/>
 
-</form>
+    <div class='col-md-12 buton-container'>
+      <button class='toggle col-md-12'>Menu</button>
+    </div>
+
+    <div class="form hidden">
+      <form action="upload.php" method="post" enctype="multipart/form-data">
+        Upload music
+        <input type="file" name="fileToUpload" id="fileToUpload">
+
+        <select name="playlist">
+          <?php
+            foreach($playlists as $key => $playlist)
+            {
+              if($playlist != '.' && $playlist != '..' && $playlist != '.DS_Store')
+              {
+                echo "<option value='".$playlist."' >".$playlist."</option>";
+              }
+            }
+          ?>
+        </select><br/>
+        <input type="submit" value="Upload Music" name="submit">
+        <hr/>
+        </form>
+
+    </div>
+      <!-- Lecteur -->
+
+
 </div>
 
 </body>

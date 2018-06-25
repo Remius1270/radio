@@ -12,6 +12,11 @@ td
   font-size: 2em;
   vertical-align: middle;
   height:90px;
+  border: none;
+}
+
+tr{
+  border: none;
 }
 
 li{
@@ -28,6 +33,27 @@ li{
   bottom: 0;
 }
 
+#current{
+  font-size: 2em;
+  font-family: 'Shrikhand', cursive;
+  border-bottom : solid 1px black;
+}
+
+#current > p{
+  float: left;
+  top:0;
+}
+
+#song{
+  font-family: 'Shrikhand', cursive;
+  font-size: 1.5em;
+}
+
+#song > p{
+  float: left;
+  top:0;
+}
+
 .centered{
   display: inline-block;
   margin-left: auto;
@@ -42,6 +68,8 @@ li{
   height: 100%;
   right: 0;
   padding: 10px 10px 10px 10px;
+  background-color: rgba(0,0,0,0.9);
+  color: white;
 }
 
 .music-list{
@@ -51,4 +79,22 @@ li{
 .playing
 {
   background-color: rgba(0,0,0,0.3)
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.toggle{
+  background-color: rgba(0,0,0,0);
+  border: solid 2px; white;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buton-container{
+  display: block;
+  text-align: center;
+  align-items: center;
 }
