@@ -21,7 +21,7 @@ $(document).ready(function(){
 
     var frequency = 0; // variable pour la fréquence. Actuellement pas utilisée
 
-    // Functions to call----------------------------------------------------------
+    // Functions to call-----------------------------------------------------------
 
     function set_source(player_source,player,music_path) // permet de changer de musique
     {
@@ -115,7 +115,28 @@ $(document).ready(function(){
       $('.form').toggleClass('hidden');
     });
 
+    $(".volume").change(function(){
+      main.volume = ($(this).val()/100);
+    });
+
     //initial script--------------------------------------------------------------
+
+
+    function detectmob() {// detecte les affichages mobiles
+ if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+ ){
+    $(".main").addClass('hidden');
+  }
+ else {
+    return false;
+  }
+}
 
     //lors du lancement de la page
     var first_playlist = structure[0];//première playlist

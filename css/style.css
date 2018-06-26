@@ -28,7 +28,7 @@ li{
 }
 
 #player{
-  height: 200px;
+  height: 300px;
   width: 100%;
   bottom: 0;
 }
@@ -51,7 +51,7 @@ li{
 
 #song > p{
   float: left;
-  top:0;
+  top:0
 }
 
 .centered{
@@ -97,4 +97,8 @@ li{
   display: block;
   text-align: center;
   align-items: center;
+}
+
+.volume-container{
+  margin-top: 20px;
 }

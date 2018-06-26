@@ -23,7 +23,7 @@
 <body>
 
 
-<div class="col-md-10">
+<div class="col-md-10 col-sm-0 main">
   <table class="table">
     <!-- ya pas de thead pasque wallah c'est pas beau -->
       <?php
@@ -56,7 +56,7 @@
     </tbody>
   </table>
 </div>
-<div class="col-md-2 sidebar">
+<div class="col-md-2 col-sm-12 sidebar">
     <div id="player" >
 
           <audio autoplay  id="main">
@@ -77,6 +77,11 @@
           <div class="info" >
             <p>Song</p>
             <div id="song">Song : </div>
+          </div>
+
+          <div class="volume-container">
+            <p>Volume</p>
+            <input type="range" min="1" max="100" value="50" class="volume">
           </div>
           <?php
               $musicPath = "./music/"; //toutes les plylist sont contenues dans le dossier musique
