@@ -5,7 +5,7 @@ $uploadOk = 1;
 $musicFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 //check file type
-if(isset($_POST["submit"]) && $musicFileType == "mp3") {
+if(isset($_POST["submit"]) && ($musicFileType == "mp3" || $musicFileType =="ogg")) {
         $uploadOk = 1;
 }
 else{
